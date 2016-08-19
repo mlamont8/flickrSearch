@@ -1,13 +1,5 @@
 # flickrsearch
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+A search for flickr images using a search term.
 
-## Build & development
-
-Run `grunt` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
-# Flickr Search
+Built with Angularjs and Material Angular
