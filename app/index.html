@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="flickrsearchApp" ng-controller="ListController">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+
+
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <span class="md-flex">Flickr Search</span>
+    </div>
+</md-toolbar>
+
+<md-content layout="column" layout-align="center center">
+
+<div class="app-content">
+<form ng-submit="search()">
+ <div ng-show="!Searching">
+            <md-input-container>
+     <label>Search for</label>
+     <input ng-model="searchTerm">
+           </md-input-container>
+ </div>
+<md-progress-circular ng-if="Searching"md-mode="indeterminate"></md-progress-circular>
+      
+</form>
+
+<md-card ng-repeat="picture in results.data.photos.photo">
+<img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_b.jpg">
+<h3>{{picture.title}}</h3>
+</md-card>
+
+<!-- <md-grid-list  ng-repeat="picture in results.data.photos.photo" md-cols-sm="2" md-cols-md="4" md-cols-lg="8" md-cols-gt-lg="12">
+  <md-grid-tile>
+<md-card>
+<img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_b.jpg">
+<h3>{{picture.title}}</h3>
+</md-card>
+
+</md-grid-tile>
+</md-grid-list> -->
+
+</div>
+
+
+</md-content>
+ 
+
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/ListController.js"></script>
+
+        <!-- endbuild -->
+</body>
+</html>
