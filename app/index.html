@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <base href="/">
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="flickrsearchApp" ng-controller="ListController">
+  <body ng-app="flickrsearchApp">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -26,11 +27,13 @@
 
 <md-toolbar>
     <div class="md-toolbar-tools">
-        <span class="md-flex">Flickr Search</span>
+        <span class="md-flex">Simple Flickr Search</span>
     </div>
 </md-toolbar>
 
-<md-content layout="column" layout-align="center center">
+<div ng-view></div>
+
+<!-- <md-content layout="column" layout-align="center center">
 
 <div class="app-content">
 <form ng-submit="search()">
@@ -44,20 +47,7 @@
       
 </form>
 
-<!-- <md-card ng-repeat="picture in results.data.photos.photo">
-<img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_b.jpg">
-<h3>{{picture.title}}</h3>
-</md-card> -->
 
-<!-- <md-grid-list>
-  <md-grid-tile ng-repeat="picture in results.data.photos.photo" md-colspan="4" md-rowspan="4">
-<md-card>
-<img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_b.jpg">
-<h3>{{picture.title}}</h3>
-</md-card>
-
-</md-grid-tile>
-</md-grid-list> -->
 <div class="md-padding" layout="row" layout-wrap>
     <md-card style='width: 300px;' ng-repeat="picture in results.data.photos.photo">
 <img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_b.jpg">
@@ -71,7 +61,7 @@
 </div>
 
 
-</md-content>
+</md-content> -->
  
 
 
@@ -84,6 +74,7 @@
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

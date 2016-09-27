@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 angular.module('flickrsearchApp')
 .controller('ListController', ['$scope', '$http',function($scope, $http){
    $scope.results = [];
@@ -7,7 +7,7 @@ angular.module('flickrsearchApp')
         $scope.Searching = true;
         $http({
             method: 'GET',
-            url: "https://api.flickr.com/services/rest",
+            url: 'https://api.flickr.com/services/rest',
             params: {
                 method: 'flickr.photos.search',
                 api_key: '1dfbed40745d1f76dc935c78c30abf16',
