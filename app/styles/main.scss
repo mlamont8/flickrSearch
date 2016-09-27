@@ -28,3 +28,10 @@ input{
 md-card{
   margin: 0 30px 25px 30px;
 }
+
+.frontImg{
+	background: url("/images/img1.jpg") no-repeat;
+	background-size: 100%;
+	min-height: 500px;
+	min-width: 80%;
+}

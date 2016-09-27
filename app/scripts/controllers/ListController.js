@@ -3,7 +3,9 @@ angular.module('flickrsearchApp')
 .controller('ListController', ['$scope', '$http',function($scope, $http){
    $scope.results = [];
    $scope.Searching = false;
+   $scope.firstTime = true;
     $scope.search = function(){
+        $scope.firstTime=false;
         $scope.Searching = true;
         $http({
             method: 'GET',

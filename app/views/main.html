@@ -11,8 +11,15 @@
 <md-progress-circular ng-if="Searching"md-mode="indeterminate"></md-progress-circular>
       
 </form>
+<!-- Carousel...Show on first page view only -->
+<div class="frontImg" ng-if="firstTime">
+	
 
 
+</div>
+
+
+<!-- Search Results -->
 <div class="md-padding" layout="row" layout-wrap>
     <md-card style='width: 300px;' ng-repeat="picture in results.data.photos.photo">
 <img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_b.jpg">
@@ -21,7 +28,7 @@
        
 
     </div>
-
+<!-- End Search Results -->
 
 </div>
 
