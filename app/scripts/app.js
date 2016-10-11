@@ -14,7 +14,8 @@ angular
     'ngResource',
     'ngSanitize',
     'ngMaterial',
-    'ngRoute'
+    'ngRoute',
+    'angularGrid'
   ])
   .config(function($routeProvider, $locationProvider){
     $routeProvider

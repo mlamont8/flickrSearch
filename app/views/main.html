@@ -20,14 +20,23 @@
 
 
 <!-- Search Results -->
-<div class="md-padding" layout="row" layout-wrap>
+<!-- <div class="md-padding" layout="row" layout-wrap>
     <md-card style='width: 300px;' ng-repeat="picture in results.data.photos.photo">
-<img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_b.jpg">
+<img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_m.jpg">
 <h3>{{picture.title | limitTo: 30}}</h3>
-</md-card>
+</md-card> -->
+
+<!-- Try another grid...also look into pagination and update url from flickr api to make it so.  Also, make popup on click to show bigger image and along with information. -->
+
+
+<div class="dynamic-grid" angular-grid ="results.data.photos.photo" ag-grid-width="300" ag-gutter-size="10" ag-angular-grid-id="gallery" ag-refresh-on-img-load="false">
+	<div ng-repeat="picture in results.data.photos.photo">
+		<img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_n.jpg">
+	</div>
+</div>
        
 
-    </div>
+    <!-- </div> -->
 <!-- End Search Results -->
 
 </div>
