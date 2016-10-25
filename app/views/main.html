@@ -8,7 +8,7 @@
      <input ng-model="searchTerm">
            </md-input-container>
  </div>
-<md-progress-circular ng-if="Searching"md-mode="indeterminate"></md-progress-circular>
+<!-- <md-progress-circular ng-if="Searching" md-mode="indeterminate" layout-align="center center"></md-progress-circular> -->
       
 </form>
 <!-- Carousel...Show on first page view only -->
@@ -17,6 +17,7 @@
 
 
 </div>
+   <md-progress-circular ng-if="Searching" md-mode="indeterminate" layout-align="center center"></md-progress-circular>
 
 
 <!-- Search Results -->
@@ -29,9 +30,10 @@
 <!-- Try another grid...also look into pagination and update url from flickr api to make it so.  Also, make popup on click to show bigger image and along with information. -->
 
 
-<div class="dynamic-grid" angular-grid ="results.data.photos.photo" ag-grid-width="300" ag-gutter-size="10" ag-angular-grid-id="gallery" ag-refresh-on-img-load="false">
-	<div ng-repeat="picture in results.data.photos.photo">
-		<img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_n.jpg">
+<div class="dynamic-grid" angular-grid ="results.data.photos.photo" ag-grid-width="300" ag-gutter-size="10" ag-angular-grid-id="gallery" ag-refresh-on-img-load="true">
+
+	<div class="grid" ng-repeat="picture in results.data.photos.photo">
+		<img class="grid-img" ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_n.jpg">
 	</div>
 </div>
        
