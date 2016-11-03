@@ -27,6 +27,7 @@ angular.module('flickrsearchApp')
             $scope.results = getback;
             $scope.Searching = false;
             $scope.searchTerm = "";
+            
             console.log($scope.results);
 
         },function errorCallback() {
