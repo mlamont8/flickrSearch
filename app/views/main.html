@@ -1,35 +1,37 @@
 <md-content layout="column" layout-align="center center">
 
 <div class="app-content">
+
+  <!-- Search Form -->
 <form ng-submit="search()">
- <div ng-show="!Searching">
+ <div ng-show="!Searching && firstTime">
             <md-input-container>
      <label>Search for</label>
      <input ng-model="searchTerm">
            </md-input-container>
  </div>
-<!-- <md-progress-circular ng-if="Searching" md-mode="indeterminate" layout-align="center center"></md-progress-circular> -->
-      
-</form>
-<!-- Carousel...Show on first page view only -->
-<div class="frontImg" ng-if="firstTime">
-	
 
-
+ <!-- Row for Search Term and Search Again button -->
+ <div layout="row">
+  <div><h1>{{searchTerm}}</h1></div>
+  <span flex></span>
+ <div ng-show="!firstTime" layout-align = "center end">
+   <md-button ng-click="refresh()" class="md-primary md-raised">Search Again</md-button>
+ </div>
 </div>
-   <md-progress-circular ng-if="Searching" md-mode="indeterminate" layout-align="center center"></md-progress-circular>
+   
+</form>
 
+<!-- ...Image to show on first page view only -->
+<div class="frontImg" ng-if="firstTime">
+</div>
+
+<!-- Progress Circle -->
+<div>
+   <md-progress-circular ng-if="Searching" md-mode="indeterminate" layout-align="center center"></md-progress-circular>
+</div>
 
 <!-- Search Results -->
-<!-- <div class="md-padding" layout="row" layout-wrap>
-    <md-card style='width: 300px;' ng-repeat="picture in results.data.photos.photo">
-<img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_m.jpg">
-<h3>{{picture.title | limitTo: 30}}</h3>
-</md-card> -->
-
-<!-- Try another grid...also look into pagination and update url from flickr api to make it so.  Also, make popup on click to show bigger image and along with information. may want to try http as service as listed in doc http://ignitersworld.com/lab/angulargrid/index.html#documentation-->
-
-
 <div class="dynamic-grid" angular-grid ="results.data.photos.photo" ag-grid-width="300" ag-gutter-size="10" ag-id="gallery" ag-refresh-on-img-load="true">
 
 	<div class="grid" ng-repeat="picture in results.data.photos.photo">
@@ -37,17 +39,6 @@
 	</div>
 </div>
        
-<!-- Try over -->
-<!-- <md-grid-list md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px">
-
-    <md-grid-tile ng-repeat="picture in results.data.photos.photo" md-colspan-sm="1" md-colspan-xs="1" ng-class="tile.background">
- <img class="grid-img" ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_n.jpg">
-    </md-grid-tile>
-  </md-grid-list>
-</div> -->
-
-
-    <!-- </div> -->
 <!-- End Search Results -->
 
 </div>

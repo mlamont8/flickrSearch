@@ -4,13 +4,18 @@ angular.module('flickrsearchApp')
 
    $scope.Searching = false;
    $scope.firstTime = true;
+   $scope.refresh = function(){
+            angularGridInstance.gallery.refresh();
+            $scope.firstTime = true; 
+            $scope.results = [];  
+            $scope.searchTerm = '';
+     };
+
     $scope.search = function(){
         $scope.results = [];
         $scope.firstTime=false;
         $scope.Searching = true;
-        $scope.refresh = function(){
-            angularGridInstance.gallery.refresh();   
-     };
+        
         $http({
             method: 'GET',
             url: 'https://api.flickr.com/services/rest',
@@ -26,7 +31,7 @@ angular.module('flickrsearchApp')
         }).then(function successCallback(getback){
             $scope.results = getback;
             $scope.Searching = false;
-            $scope.searchTerm = "";
+
             
             console.log($scope.results);
 
