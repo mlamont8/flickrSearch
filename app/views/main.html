@@ -13,7 +13,7 @@
 
  <!-- Row for Search Term and Search Again button -->
  <div layout="row">
-  <div><h1>{{searchTerm}}</h1></div>
+  <div><h1>{{searchTerm | uppercase}}</h1></div>
   <span flex></span>
  <div ng-show="!firstTime" layout-align = "center end">
    <md-button ng-click="refresh()" class="md-primary md-raised">Search Again</md-button>
@@ -27,8 +27,8 @@
 </div>
 
 <!-- Progress Circle -->
-<div>
-   <md-progress-circular ng-if="Searching" md-mode="indeterminate" layout-align="center center"></md-progress-circular>
+<div layout="row" layout-align="center">
+   <md-progress-circular ng-if="Searching" md-mode="indeterminate"></md-progress-circular>
 </div>
 
 <!-- Search Results -->
